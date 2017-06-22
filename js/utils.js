@@ -28,6 +28,7 @@ utils.captureMouse = function (element) {
     return mouse;
 };
 
+
 utils.captureTouch = function (element) {
     var touch = {x: null, y: null, isPressed: false};
 
@@ -62,4 +63,22 @@ utils.captureTouch = function (element) {
     });
     
     return touch;
+};
+
+
+utils.parseColor = function (color, toNumber) {
+  if (toNumber === true) {
+    if (typeof color === 'number') {
+      return (color | 0); //chop off decimal
+    }
+    if (typeof color === 'string' && color[0] === '#') {
+      color = color.slice(1);
+    }
+    return window.parseInt(color, 16);
+  } else {
+    if (typeof color === 'number') {
+      color = '#' + ('00000' + (color | 0).toString(16)).substr(-6); //pad
+    }
+    return color;
+  }
 };
