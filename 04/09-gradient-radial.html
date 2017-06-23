@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gradient fill radial</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d'),
+                pt1 = {x: 150, y: 150, radius: 0},
+                pt2 = {x: 150, y: 150, radius: 50},
+                gradient = context.createLinearGradient(pt1.x, pt1.y, pt1.radius,
+                    pt2.x, pt2.y, pt2.radius);
+
+            gradient.addColorStop(0, '#ffffff');
+            gradient.addColorStop(0.5, '#0000ff');
+            gradient.addColorStop(1, '#ff0000');
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, 100, 100);
+
+        };
+    </script>
+</body>
+</html>
