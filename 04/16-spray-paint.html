@@ -20,7 +20,7 @@
           brush_color;
 
       canvas.addEventListener('mousedown', function () {
-        brush_color = utils.parseColor(Math.random() * 0xffffff, true); //to number
+        brush_color = utils.parseColor(Math.random() * 0xffffff, true);
         canvas.addEventListener('mousemove', onMouseMove, false);
       }, false);
 
